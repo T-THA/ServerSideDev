@@ -61,7 +61,6 @@ public class ContactServiceTest {
         contactRepository.save(contact2);
 
         List<Contact> contacts = contactService.getAll();
-
         assertThat(contacts, hasItems(contact1, contact2));
     }
 

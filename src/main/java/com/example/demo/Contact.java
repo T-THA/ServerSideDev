@@ -1,53 +1,35 @@
 package com.example.demo;
 
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
+import lombok.Data;
+
 import java.util.Objects;
 
+@Data
 public class Contact {
+
     private Long id;
+
+    @NotNull
+    @Size(min=1, message="名字不能为空")
     private String firstName;
+
+    @NotNull
+    @Size(min=1, message="名字不能为空")
     private String lastName;
+
+    @NotNull
+
+    @Pattern(regexp = "\\d{11}",message = "必须为数字，并且长度为11")
     private String phoneNumber;
+
+    @NotNull
+    @Size(min=1, message="邮箱不能为空")
+    @Email(message = "必须为邮箱格式")
     private String emailAddress;
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
-
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public void setEmailAddress(String emailAddress) {
-        this.emailAddress = emailAddress;
-    }
-
-    public String getEmailAddress() {
-        return emailAddress;
-    }
 
     @Override
     public String toString() {

@@ -2,11 +2,46 @@
 <html xmlns="http://www.w3.org/1999/xhtml" 
       xmlns:th="http://www.thymeleaf.org">
   <head>
-    <title>Taco Cloud</title>
+      <title>Contact</title>
   </head>
   
   <body>
-    <h1>Welcome to.......</h1>
-    <img th:src="@{/images/TacoCloud.png}"/>
+    <form method="POST" th:object="${contact}">
+      <label for="firstName">First Name:</label>
+        <input type="text" th:field="*{firstName}" />
+      <span class="validationError"
+          th:if="${#fields.hasErrors('firstName')}"
+            th:errors="*{firstName}">firstName</span>
+        <br/>
+        <label for="lastName">Last Name:</label>
+        <input type="text" th:field="*{lastName}" />
+        <span class="validationError"
+            th:if="${#fields.hasErrors('lastName')}"
+                th:errors="*{lastName}">lastName</span>
+        <br/>
+        <label for="emailAddress">Email:</label>
+        <input type="text" th:field="*{emailAddress}" />
+        <span class="validationError"
+            th:if="${#fields.hasErrors('emailAddress')}"
+                th:errors="*{emailAddress}">email</span>
+        <br/>
+        <label for="phoneNumber">Phone:</label>
+        <input type="text" th:field="*{phoneNumber}" />
+        <span class="validationError"
+            th:if="${#fields.hasErrors('phoneNumber')}"
+                th:errors="*{phoneNumber}">phone</span>
+        <br/>
+        <input type="submit" value="Submit" /> <input type="reset" value="Reset" />
+    </form>
+
+    <u1 th:each="contact1 : ${contacts}">
+      <li>
+
+        <span th:text="${contact1.firstName}"></span>
+        <span th:text="${contact1.lastName}"></span>
+        <span th:text="${contact1.emailAddress}"></span>
+        <span th:text="${contact1.phoneNumber}"></span>
+        </li>
+    </u1>
   </body>
 </html>

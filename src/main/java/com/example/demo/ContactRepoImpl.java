@@ -1,7 +1,11 @@
 package com.example.demo;
 
+import lombok.Data;
+import org.springframework.stereotype.Component;
+
 import java.util.*;
 
+@Component
 public class ContactRepoImpl implements ContactRepository{
     private List<Contact> contacts;
 

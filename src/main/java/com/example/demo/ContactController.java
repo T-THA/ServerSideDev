@@ -12,7 +12,6 @@ import java.util.List;
 @Slf4j
 @RequestMapping("/home")
 @Controller
-@SessionAttributes("contacts")
 public class ContactController {
 
     @Autowired

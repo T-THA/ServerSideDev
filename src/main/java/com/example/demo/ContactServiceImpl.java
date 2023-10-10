@@ -17,12 +17,7 @@ public class ContactServiceImpl implements ContactService{
     @Override
     public List<Contact> getAll() {
         List<Contact> contacts = new ArrayList<>();
-        Contact contact = new Contact();
-        contact.setLastName("Doe");
-        contact.setFirstName("John");
-        contact.setPhoneNumber("12345678901");
-        contact.setEmailAddress("22@qq.com");
-        contacts.add(contact);
+        contactRepo.findAll().forEach(contacts::add);
         return contacts;
     }
 

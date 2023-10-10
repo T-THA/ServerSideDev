@@ -1,5 +1,6 @@
 package com.example.demo;
 
+import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
@@ -9,8 +10,12 @@ import lombok.Data;
 import java.util.Objects;
 
 @Data
+@Entity
 public class Contact {
 
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @NotNull
@@ -22,7 +27,6 @@ public class Contact {
     private String lastName;
 
     @NotNull
-
     @Pattern(regexp = "\\d{11}",message = "必须为数字，并且长度为11")
     private String phoneNumber;
 

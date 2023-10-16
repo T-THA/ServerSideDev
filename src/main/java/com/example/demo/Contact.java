@@ -6,17 +6,18 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Objects;
 
 @Data
-@Entity
+@Document
 public class Contact {
 
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private String id;
 
     @NotNull
     @Size(min=1, message="名字不能为空")

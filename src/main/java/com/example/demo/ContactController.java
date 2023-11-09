@@ -42,4 +42,5 @@ public class ContactController {
     public String home(){
         return "home";
     }
+
 }

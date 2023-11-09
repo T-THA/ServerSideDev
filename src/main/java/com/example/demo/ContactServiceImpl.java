@@ -1,6 +1,5 @@
 package com.example.demo;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -24,5 +23,17 @@ public class ContactServiceImpl implements ContactService{
     @Override
     public void add(Contact contact) {
         contactRepo.save(contact);
+    }
+
+    @Override
+    public void delete(Long id) {
+        contactRepo.deleteById(id);
+    }
+
+    @Override
+    public Contact get(Long id) {
+        if (contactRepo.findById(id).isEmpty())
+            return null;
+        return contactRepo.findById(id).get();
     }
 }

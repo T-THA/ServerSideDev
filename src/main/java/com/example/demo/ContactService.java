@@ -6,4 +6,8 @@ public interface ContactService {
     List<Contact> getAll();
 
     void add(Contact contact);
+
+    void delete(Long id);
+
+    Contact get(Long id);
 }
